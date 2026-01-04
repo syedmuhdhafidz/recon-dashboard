@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glass-panel {
+    background-color: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scrolling-text {
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+/* Custom Scrollbar for the panels */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #204b2b;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00ff41;
+}
+
+/* src/index.css */
+
+@keyframes scanline-move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+.scanlines {
+    /* 1. POSITIONING: Fixes it to the screen */
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    /* Allows you to click buttons "through" the screen */
+
+    /* 2. TEXTURE: Switch from Black to White (Phosphor Glow) */
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            /* Transparent */
+            rgba(255, 255, 255, 0) 50%,
+            /* Transparent */
+            rgba(255, 255, 255, 0.05) 50%,
+            /* Faint White (5% opacity) */
+            rgba(255, 255, 255, 0.05)
+            /* Faint White */
+        );
+
+    /* 3. SIZE & ANIMATION */
+    background-size: 100% 4px;
+    /* Size of the lines */
+    animation: scanline-move 20s linear infinite;
+    /* Slow, steady movement */
+}
