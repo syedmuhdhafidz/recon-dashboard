@@ -4,7 +4,7 @@
 
 > *Situational awareness for the modern bug bounty hunter.*
 
-![Dashboard Preview](./public/preview.gif)
+![Dashboard Preview](./public/preview.png)
 
 ## 📡 Transmission
 **God Mode // Recon** is a high-fidelity "Concept UI" prototype designed for cybersecurity operations. It visualizes active reconnaissance data, vulnerability logs, and network traffic in a cinematic, "Hollywood-style" interface.
